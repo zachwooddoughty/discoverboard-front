@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Angular Gridster</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="dist/angular-gridster.min.css" />
+    <link rel="stylesheet" href="demo/common/style.css" />
+    <link rel="stylesheet" href="demo/main/style.css" />
+
+<!-- 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://rawgit.com/sdecima/javascript-detect-element-resize/master/detect-element-resize.js"></script>
+ -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+
+    <script src="src/angular-gridster.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            angular.module('app', ['gridster']);
+        })();
+    </script>
+
+    <script src="demo/main/script.js"></script>
+</head>
+
+<body ng-app="app">
+<div ng-view>
+<div class="demo-container" ng-controller="MainCtrl">
+
+    <input type="button" ng-click="gridsterOpts.draggable.enabled = !gridsterOpts.draggable.enabled" value="{{gridsterOpts.draggable.enabled ? 'Disable' : 'Enable' }} Draggability" />
+
+    <input type="button" ng-click="addTile()" value="New tile"/>
+
+<div class="demo-container">
+    <div gridster="gridsterOpts">
+        <ul>
+            <li gridster-item="item" ng-repeat="item in standardItems">
+                <input type="text" ng-model="summary"/>
+                <p>{{summary}}</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
